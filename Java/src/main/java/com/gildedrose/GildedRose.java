@@ -24,7 +24,11 @@ class GildedRose {
     }
 
     private void handleQualityUpdate(Item item) {
-        if (isAgedBrie(item) || isBackstagePass(item) || isLegendary(item)) {
+        if (isAgedBrie(item)) {
+            increaseQuality(item);
+        } else if (isBackstagePass(item)) {
+            increaseQuality(item);
+        } else if (isLegendary(item)) {
             increaseQuality(item);
         } else {
             decreaseQuality(item);
