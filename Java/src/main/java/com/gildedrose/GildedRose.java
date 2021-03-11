@@ -28,13 +28,7 @@ class GildedRose {
             increaseQuality(item);
         } else if (isBackstagePass(item)) {
             increaseQuality(item);
-        } else if (isLegendary(item)) {
-            increaseQuality(item);
-        } else {
-            decreaseQuality(item);
-        }
 
-        if (isBackstagePass(item)) {
             if (item.sellIn < 11) {
                 increaseQuality(item);
             }
@@ -42,6 +36,10 @@ class GildedRose {
             if (item.sellIn < 6) {
                 increaseQuality(item);
             }
+        } else if (isLegendary(item)) {
+            increaseQuality(item);
+        } else {
+            decreaseQuality(item);
         }
     }
 
