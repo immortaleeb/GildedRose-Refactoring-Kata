@@ -14,6 +14,16 @@ class GildedRose {
     }
 
     private void updateQualityOf(Item item) {
+        handleQualityUpdate(item);
+
+        handleSellInUpdate(item);
+
+        if (isExpired(item)) {
+            handleExpirationUpdate(item);
+        }
+    }
+
+    private void handleQualityUpdate(Item item) {
         if (isAgedBrie(item) || isBackstagePass(item) || isLegendary(item)) {
             increaseQuality(item);
         } else {
@@ -29,23 +39,25 @@ class GildedRose {
                 increaseQuality(item);
             }
         }
+    }
 
+    private void handleSellInUpdate(Item item) {
         if (!isLegendary(item)) {
             decreaseSellIn(item);
         }
+    }
 
-        if (isExpired(item)) {
-            if (!isAgedBrie(item)) {
-                if (!isBackstagePass(item)) {
-                    if (!isLegendary(item)) {
-                        decreaseQuality(item);
-                    }
-                } else {
-                    dropQuality(item);
+    private void handleExpirationUpdate(Item item) {
+        if (!isAgedBrie(item)) {
+            if (!isBackstagePass(item)) {
+                if (!isLegendary(item)) {
+                    decreaseQuality(item);
                 }
             } else {
-                increaseQuality(item);
+                dropQuality(item);
             }
+        } else {
+            increaseQuality(item);
         }
     }
 
