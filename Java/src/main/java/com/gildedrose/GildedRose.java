@@ -25,12 +25,6 @@ class GildedRose {
         }
     }
 
-    private void handleQualityUpdate(Item item) {
-        InventoryItem inventoryItem = new InventoryItem(item);
-
-        handleQualityUpdate(inventoryItem);
-    }
-
     private void handleQualityUpdate(InventoryItem inventoryItem) {
         if (inventoryItem.isAgedBrie()) {
             inventoryItem.increaseQuality();
@@ -51,12 +45,6 @@ class GildedRose {
         }
     }
 
-    private void handleSellInUpdate(Item item) {
-        InventoryItem inventoryItem = new InventoryItem(item);
-
-        handleSellInUpdate(inventoryItem);
-    }
-
     private void handleSellInUpdate(InventoryItem inventoryItem) {
         if (inventoryItem.isAgedBrie()) {
             inventoryItem.decreaseSellIn();
@@ -67,12 +55,6 @@ class GildedRose {
         } else {
             inventoryItem.decreaseSellIn();
         }
-    }
-
-    private void handleExpirationUpdate(Item item) {
-        InventoryItem inventoryItem = new InventoryItem(item);
-
-        handleExpirationUpdate(inventoryItem);
     }
 
     private void handleExpirationUpdate(InventoryItem inventoryItem) {
