@@ -33,7 +33,7 @@ class GildedRose {
         }
 
         if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
-            item.sellIn = item.sellIn - 1;
+            decreaseSellIn(item);
         }
 
         if (isExpired(item)) {
@@ -49,6 +49,10 @@ class GildedRose {
                 increaseQuality(item);
             }
         }
+    }
+
+    private void decreaseSellIn(Item item) {
+        item.sellIn = item.sellIn - 1;
     }
 
     private boolean isExpired(Item item) {
