@@ -18,85 +18,59 @@ class GildedRose {
 
         handleSellInUpdate(item);
 
-        if (isExpired(item)) {
+        if (new InventoryItem(item).isExpired()) {
             handleExpirationUpdate(item);
         }
     }
 
     private void handleQualityUpdate(Item item) {
-        if (isAgedBrie(item)) {
-            increaseQuality(item);
-        } else if (isBackstagePass(item)) {
-            increaseQuality(item);
+        InventoryItem inventoryItem = new InventoryItem(item);
+
+        if (inventoryItem.isAgedBrie()) {
+            inventoryItem.increaseQuality();
+        } else if (inventoryItem.isBackstagePass()) {
+            inventoryItem.increaseQuality();
 
             if (item.sellIn < 11) {
-                increaseQuality(item);
+                inventoryItem.increaseQuality();
             }
 
             if (item.sellIn < 6) {
-                increaseQuality(item);
+                inventoryItem.increaseQuality();
             }
-        } else if (isLegendary(item)) {
-            increaseQuality(item);
+        } else if (inventoryItem.isLegendary()) {
+            inventoryItem.increaseQuality();
         } else {
-            decreaseQuality(item);
+            inventoryItem.decreaseQuality();
         }
     }
 
     private void handleSellInUpdate(Item item) {
-        if (isAgedBrie(item)) {
-            decreaseSellIn(item);
-        } else if (isBackstagePass(item)) {
-            decreaseSellIn(item);
-        } else if (isLegendary(item)) {
+        InventoryItem inventoryItem = new InventoryItem(item);
+
+        if (inventoryItem.isAgedBrie()) {
+            inventoryItem.decreaseSellIn();
+        } else if (inventoryItem.isBackstagePass()) {
+            inventoryItem.decreaseSellIn();
+        } else if (inventoryItem.isLegendary()) {
             // do nothing
         } else {
-            decreaseSellIn(item);
+            inventoryItem.decreaseSellIn();
         }
     }
 
     private void handleExpirationUpdate(Item item) {
-        if (isAgedBrie(item)) {
-            increaseQuality(item);
-        } else if (isBackstagePass(item)) {
-            dropQuality(item);
-        } else if (isLegendary(item)) {
+        InventoryItem inventoryItem = new InventoryItem(item);
+
+        if (inventoryItem.isAgedBrie()) {
+            inventoryItem.increaseQuality();
+        } else if (inventoryItem.isBackstagePass()) {
+            inventoryItem.dropQuality();
+        } else if (inventoryItem.isLegendary()) {
             // do nothing
         } else {
-            decreaseQuality(item);
+            inventoryItem.decreaseQuality();
         }
-    }
-
-    private boolean isLegendary(Item item) {
-        return new InventoryItem(item).isLegendary();
-    }
-
-    private boolean isBackstagePass(Item item) {
-        return new InventoryItem(item).isBackstagePass();
-    }
-
-    private boolean isAgedBrie(Item item) {
-        return new InventoryItem(item).isAgedBrie();
-    }
-
-    private void decreaseSellIn(Item item) {
-        new InventoryItem(item).decreaseSellIn();
-    }
-
-    private boolean isExpired(Item item) {
-        return new InventoryItem(item).isExpired();
-    }
-
-    private void increaseQuality(Item item) {
-        new InventoryItem(item).increaseQuality();
-    }
-
-    private void decreaseQuality(Item item) {
-        new InventoryItem(item).decreaseQuality();
-    }
-
-    private void dropQuality(Item item) {
-        new InventoryItem(item).dropQuality();
     }
 
 }
