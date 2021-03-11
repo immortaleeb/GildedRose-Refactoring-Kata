@@ -14,12 +14,14 @@ class GildedRose {
     }
 
     private void updateQualityOf(Item item) {
-        handleQualityUpdate(item);
+        InventoryItem inventoryItem = new InventoryItem(item);
 
-        handleSellInUpdate(item);
+        handleQualityUpdate(inventoryItem);
 
-        if (new InventoryItem(item).isExpired()) {
-            handleExpirationUpdate(item);
+        handleSellInUpdate(inventoryItem);
+
+        if (inventoryItem.isExpired()) {
+            handleExpirationUpdate(inventoryItem);
         }
     }
 
