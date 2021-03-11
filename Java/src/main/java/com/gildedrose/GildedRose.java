@@ -31,11 +31,11 @@ class GildedRose {
         } else if (inventoryItem.isBackstagePass()) {
             inventoryItem.increaseQuality();
 
-            if (item.sellIn < 11) {
+            if (inventoryItem.sellsIn(11)) {
                 inventoryItem.increaseQuality();
             }
 
-            if (item.sellIn < 6) {
+            if (inventoryItem.sellsIn(6)) {
                 inventoryItem.increaseQuality();
             }
         } else if (inventoryItem.isLegendary()) {

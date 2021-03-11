@@ -42,4 +42,9 @@ class InventoryItem {
     public void dropQuality() {
         item.quality = 0;
     }
+
+    public boolean sellsIn(int numberOfDays) {
+        return item.sellIn < numberOfDays;
+    }
+    
 }
