@@ -44,7 +44,13 @@ class GildedRose {
     }
 
     private void handleSellInUpdate(Item item) {
-        if (!isLegendary(item)) {
+        if (isAgedBrie(item)) {
+            decreaseSellIn(item);
+        } else if (isBackstagePass(item)) {
+            decreaseSellIn(item);
+        } else if (isLegendary(item)) {
+            // do nothing
+        } else {
             decreaseSellIn(item);
         }
     }
