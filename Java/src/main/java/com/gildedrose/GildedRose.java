@@ -36,7 +36,7 @@ class GildedRose {
             item.sellIn = item.sellIn - 1;
         }
 
-        if (item.sellIn < 0) {
+        if (isExpired(item)) {
             if (!item.name.equals("Aged Brie")) {
                 if (!item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                     if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
@@ -49,6 +49,10 @@ class GildedRose {
                 increaseQuality(item);
             }
         }
+    }
+
+    private boolean isExpired(Item item) {
+        return item.sellIn < 0;
     }
 
     private void increaseQuality(Item item) {
