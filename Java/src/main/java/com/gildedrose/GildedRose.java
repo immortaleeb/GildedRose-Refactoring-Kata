@@ -68,39 +68,79 @@ class GildedRose {
     }
 
     private boolean isLegendary(Item item) {
-        return item.name.equals("Sulfuras, Hand of Ragnaros");
+        return new InventoryItem(item).isLegendary();
     }
 
     private boolean isBackstagePass(Item item) {
-        return item.name.equals("Backstage passes to a TAFKAL80ETC concert");
+        return new InventoryItem(item).isBackstagePass();
     }
 
     private boolean isAgedBrie(Item item) {
-        return item.name.equals("Aged Brie");
+        return new InventoryItem(item).isAgedBrie();
     }
 
     private void decreaseSellIn(Item item) {
-        item.sellIn = item.sellIn - 1;
+        new InventoryItem(item).decreaseSellIn();
     }
 
     private boolean isExpired(Item item) {
-        return item.sellIn < 0;
+        return new InventoryItem(item).isExpired();
     }
 
     private void increaseQuality(Item item) {
-        if (item.quality < 50) {
-            item.quality = item.quality + 1;
-        }
+        new InventoryItem(item).increaseQuality();
     }
 
     private void decreaseQuality(Item item) {
-        if (item.quality > 0) {
-            item.quality = item.quality - 1;
-        }
+        new InventoryItem(item).decreaseQuality();
     }
 
     private void dropQuality(Item item) {
-        item.quality = 0;
+        new InventoryItem(item).dropQuality();
+    }
+
+    private static class InventoryItem {
+        private final Item item;
+
+        public InventoryItem(Item item) {
+            this.item = item;
+        }
+
+        private boolean isLegendary() {
+            return item.name.equals("Sulfuras, Hand of Ragnaros");
+        }
+
+        private boolean isBackstagePass() {
+            return item.name.equals("Backstage passes to a TAFKAL80ETC concert");
+        }
+
+        private boolean isAgedBrie() {
+            return item.name.equals("Aged Brie");
+        }
+
+        private void decreaseSellIn() {
+            item.sellIn = item.sellIn - 1;
+        }
+
+        private boolean isExpired() {
+            return item.sellIn < 0;
+        }
+
+        private void increaseQuality() {
+            if (item.quality < 50) {
+                item.quality = item.quality + 1;
+            }
+        }
+
+        private void decreaseQuality() {
+            if (item.quality > 0) {
+                item.quality = item.quality - 1;
+            }
+        }
+
+        private void dropQuality() {
+            item.quality = 0;
+        }
     }
 
 }
