@@ -52,16 +52,12 @@ class GildedRose {
     private void handleExpirationUpdate(Item item) {
         if (isAgedBrie(item)) {
             increaseQuality(item);
+        } else if (isBackstagePass(item)) {
+            dropQuality(item);
+        } else if (isLegendary(item)) {
+            // do nothing
         } else {
-            if (isBackstagePass(item)) {
-                dropQuality(item);
-            } else {
-                if (isLegendary(item)) {
-                    return;
-                }
-
-                decreaseQuality(item);
-            }
+            decreaseQuality(item);
         }
     }
 
