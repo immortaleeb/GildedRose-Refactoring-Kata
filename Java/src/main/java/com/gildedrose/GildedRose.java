@@ -50,16 +50,18 @@ class GildedRose {
     }
 
     private void handleExpirationUpdate(Item item) {
-        if (!isAgedBrie(item)) {
-            if (!isBackstagePass(item)) {
-                if (!isLegendary(item)) {
-                    decreaseQuality(item);
-                }
-            } else {
-                dropQuality(item);
-            }
-        } else {
+        if (isAgedBrie(item)) {
             increaseQuality(item);
+        } else {
+            if (isBackstagePass(item)) {
+                dropQuality(item);
+            } else {
+                if (isLegendary(item)) {
+                    return;
+                }
+
+                decreaseQuality(item);
+            }
         }
     }
 
