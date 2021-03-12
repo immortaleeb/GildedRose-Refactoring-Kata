@@ -2,10 +2,23 @@ package com.gildedrose;
 
 public class UpdateableInventoryItemFactory {
 
-    public UpdateableInventoryItem createFor(InventoryItem inventoryItem) {
-        ItemType itemType = inventoryItem.type();
+    private final InventoryItemFactory inventoryItemFactory;
 
-        switch (itemType) {
+    public UpdateableInventoryItemFactory() {
+        this(new InventoryItemFactory());
+    }
+
+    public UpdateableInventoryItemFactory(InventoryItemFactory inventoryItemFactory) {
+        this.inventoryItemFactory = inventoryItemFactory;
+    }
+
+    public UpdateableInventoryItem createFor(Item item) {
+        InventoryItem inventoryItem = inventoryItemFactory.createFor(item);
+        return createFor(inventoryItem);
+    }
+
+    private UpdateableInventoryItem createFor(InventoryItem inventoryItem) {
+        switch (inventoryItem.type()) {
             case AGED_BRIE:
                 return new AgedBrie(inventoryItem);
             case BACKSTAGE_PASS:

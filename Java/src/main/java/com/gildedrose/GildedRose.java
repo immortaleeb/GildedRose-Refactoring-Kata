@@ -14,23 +14,17 @@ class GildedRose {
     }
 
     private void updateQualityOf(Item item) {
-        InventoryItem inventoryItem = parse(item);
         UpdateableInventoryItemFactory factory = new UpdateableInventoryItemFactory();
 
-        UpdateableInventoryItem updateableInventoryItem = factory.createFor(inventoryItem);
+        UpdateableInventoryItem inventoryItem = factory.createFor(item);
 
-        updateableInventoryItem.updateQuality();
+        inventoryItem.updateQuality();
 
-        updateableInventoryItem.updateSellIn();
+        inventoryItem.updateSellIn();
 
         if (inventoryItem.isExpired()) {
-            updateableInventoryItem.updateExpiredItem();
+            inventoryItem.updateExpiredItem();
         }
-    }
-
-    private InventoryItem parse(Item item) {
-        InventoryItemFactory factory = new InventoryItemFactory();
-        return factory.createFor(item);
     }
 
 }

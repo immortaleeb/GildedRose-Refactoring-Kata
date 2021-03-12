@@ -9,6 +9,11 @@ class AgedBrie implements UpdateableInventoryItem {
     }
 
     @Override
+    public boolean isExpired() {
+        return inventoryItem.isExpired();
+    }
+
+    @Override
     public void updateQuality() {
         inventoryItem.increaseQuality();
     }
