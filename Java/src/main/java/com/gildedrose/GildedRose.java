@@ -14,7 +14,7 @@ class GildedRose {
     }
 
     private void updateQualityOf(Item item) {
-        InventoryItem inventoryItem = new InventoryItem(item, parseItemType(item));
+        InventoryItem inventoryItem = parse(item);
         UpdateableInventoryItemFactory factory = new UpdateableInventoryItemFactory();
 
         UpdateableInventoryItem updateableInventoryItem = factory.createFor(inventoryItem);
@@ -28,8 +28,9 @@ class GildedRose {
         }
     }
 
-    private ItemType parseItemType(Item item) {
-        return new ItemTypeParser().parse(item.name);
+    private InventoryItem parse(Item item) {
+        InventoryItemFactory factory = new InventoryItemFactory();
+        return factory.createFor(item);
     }
 
 }
