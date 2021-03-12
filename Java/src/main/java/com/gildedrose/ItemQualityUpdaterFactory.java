@@ -7,13 +7,13 @@ public class ItemQualityUpdaterFactory {
 
         switch (itemType) {
             case AGED_BRIE:
-                return new AgedBrieItemQualityUpdater();
+                return new AgedBrieItemQualityUpdater(inventoryItem);
             case BACKSTAGE_PASS:
-                return new BackstagePassItemQualityUpdater();
+                return new BackstagePassItemQualityUpdater(inventoryItem);
             case LEGENDARY_ITEM:
-                return new LegendaryItemQualityUpdater();
+                return new LegendaryItemQualityUpdater(inventoryItem);
             default:
-                return new NormalItemQualityUpdater();
+                return new NormalItemQualityUpdater(inventoryItem);
         }
     }
 

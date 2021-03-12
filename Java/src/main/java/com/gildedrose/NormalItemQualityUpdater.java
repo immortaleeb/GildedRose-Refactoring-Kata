@@ -2,6 +2,12 @@ package com.gildedrose;
 
 class NormalItemQualityUpdater implements ItemQualityUpdater {
 
+    private final InventoryItem inventoryItem;
+
+    public NormalItemQualityUpdater(InventoryItem inventoryItem) {
+        this.inventoryItem = inventoryItem;
+    }
+
     @Override
     public void updateQualityOf(InventoryItem inventoryItem) {
         inventoryItem.decreaseQuality();

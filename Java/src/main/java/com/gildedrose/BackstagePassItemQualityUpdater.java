@@ -2,6 +2,12 @@ package com.gildedrose;
 
 class BackstagePassItemQualityUpdater implements ItemQualityUpdater {
 
+    private final InventoryItem inventoryItem;
+
+    public BackstagePassItemQualityUpdater(InventoryItem inventoryItem) {
+        this.inventoryItem = inventoryItem;
+    }
+
     @Override
     public void updateQualityOf(InventoryItem inventoryItem) {
         inventoryItem.increaseQuality();
