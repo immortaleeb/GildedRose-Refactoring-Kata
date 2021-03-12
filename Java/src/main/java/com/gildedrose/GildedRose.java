@@ -48,21 +48,16 @@ class GildedRose {
     }
 
     private void handleExpirationUpdate(InventoryItem inventoryItem) {
-        if (inventoryItem.isAgedBrie()) {
-            inventoryItem.increaseQuality();
-        } else if (inventoryItem.isBackstagePass()) {
-            inventoryItem.dropQuality();
-        } else if (inventoryItem.isLegendary()) {
-            // do nothing
-        } else {
-            inventoryItem.decreaseQuality();
-        }
+        ItemQualityUpdater itemQualityUpdater = createItemQualityUpdater(inventoryItem);
+        itemQualityUpdater.updateExpiredItem(inventoryItem);
     }
 
     private interface ItemQualityUpdater {
         void updateQualityOf(InventoryItem inventoryItem);
 
         void updateSellInOf(InventoryItem inventoryItem);
+
+        void updateExpiredItem(InventoryItem inventoryItem);
     }
 
     private static class AgedBrieItemQualityUpdater implements ItemQualityUpdater {
@@ -75,6 +70,11 @@ class GildedRose {
         @Override
         public void updateSellInOf(InventoryItem inventoryItem) {
             inventoryItem.decreaseSellIn();
+        }
+
+        @Override
+        public void updateExpiredItem(InventoryItem inventoryItem) {
+            inventoryItem.increaseQuality();
         }
 
     }
@@ -98,6 +98,11 @@ class GildedRose {
         public void updateSellInOf(InventoryItem inventoryItem) {
             inventoryItem.decreaseSellIn();
         }
+
+        @Override
+        public void updateExpiredItem(InventoryItem inventoryItem) {
+            inventoryItem.dropQuality();
+        }
     }
 
     private static class LegendaryItemQualityUpdater implements ItemQualityUpdater {
@@ -109,6 +114,11 @@ class GildedRose {
 
         @Override
         public void updateSellInOf(InventoryItem inventoryItem) {
+            // nothing to do
+        }
+
+        @Override
+        public void updateExpiredItem(InventoryItem inventoryItem) {
             // nothing to do
         }
     }
@@ -123,6 +133,11 @@ class GildedRose {
         @Override
         public void updateSellInOf(InventoryItem inventoryItem) {
             inventoryItem.decreaseSellIn();
+        }
+
+        @Override
+        public void updateExpiredItem(InventoryItem inventoryItem) {
+            inventoryItem.decreaseQuality();
         }
     }
 
