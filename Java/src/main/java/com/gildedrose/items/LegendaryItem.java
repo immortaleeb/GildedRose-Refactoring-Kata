@@ -16,13 +16,13 @@ public class LegendaryItem implements UpdateableInventoryItem {
     }
 
     @Override
-    public void updateQuality() {
-        inventoryItem.increaseQuality();
+    public void updateSellIn() {
+        // nothing to do
     }
 
     @Override
-    public void updateSellIn() {
-        // nothing to do
+    public void updateQuality() {
+        inventoryItem.increaseQuality();
     }
 
     @Override

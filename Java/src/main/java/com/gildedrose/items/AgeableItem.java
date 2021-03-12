@@ -16,13 +16,13 @@ public class AgeableItem implements UpdateableInventoryItem {
     }
 
     @Override
-    public void updateQuality() {
-        inventoryItem.increaseQuality();
+    public void updateSellIn() {
+        inventoryItem.decreaseSellIn();
     }
 
     @Override
-    public void updateSellIn() {
-        inventoryItem.decreaseSellIn();
+    public void updateQuality() {
+        inventoryItem.increaseQuality();
     }
 
     @Override

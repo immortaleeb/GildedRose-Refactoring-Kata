@@ -26,9 +26,9 @@ class GildedRose {
     private void updateQualityOf(Item item) {
         UpdateableInventoryItem inventoryItem = updateableInventoryItemFactory.createFor(item);
 
-        inventoryItem.updateQuality();
-
         inventoryItem.updateSellIn();
+
+        inventoryItem.updateQuality();
 
         if (inventoryItem.isExpired()) {
             inventoryItem.updateExpiredItem();
