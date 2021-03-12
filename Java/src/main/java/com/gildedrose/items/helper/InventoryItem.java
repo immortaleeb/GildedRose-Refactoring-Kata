@@ -3,6 +3,9 @@ package com.gildedrose.items.helper;
 import com.gildedrose.Item;
 
 public class InventoryItem {
+    private static final int MAX_QUALITY = 50;
+    private static final int MIN_QUALITY = 0;
+
     private final Item item;
     private final ItemType type;
 
@@ -23,24 +26,27 @@ public class InventoryItem {
         return item.sellIn < 0;
     }
 
+    public void increaseQuality(int increment) {
+        item.quality = Math.min(MAX_QUALITY, item.quality + increment);
+    }
+
     public void increaseQuality() {
-        if (item.quality < 50) {
-            item.quality = item.quality + 1;
-        }
+        increaseQuality(1);
+    }
+
+    public void decreaseQuality(int decrement) {
+        item.quality = Math.max(MIN_QUALITY, item.quality - decrement);
     }
 
     public void decreaseQuality() {
-        if (item.quality > 0) {
-            item.quality = item.quality - 1;
-        }
+        decreaseQuality(1);
     }
 
     public void dropQuality() {
-        item.quality = 0;
+        item.quality = MIN_QUALITY;
     }
 
     public boolean sellsIn(int numberOfDays) {
         return item.sellIn < numberOfDays;
     }
-    
 }
