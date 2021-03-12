@@ -9,17 +9,17 @@ class LegendaryItemQualityUpdater implements ItemQualityUpdater {
     }
 
     @Override
-    public void updateQualityOf(InventoryItem inventoryItem) {
+    public void updateQuality() {
         inventoryItem.increaseQuality();
     }
 
     @Override
-    public void updateSellInOf(InventoryItem inventoryItem) {
+    public void updateSellIn() {
         // nothing to do
     }
 
     @Override
-    public void updateExpiredItem(InventoryItem inventoryItem) {
+    public void updateExpiredItem() {
         // nothing to do
     }
 }

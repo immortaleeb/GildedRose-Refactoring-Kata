@@ -1,9 +1,9 @@
 package com.gildedrose;
 
 interface ItemQualityUpdater {
-    void updateQualityOf(InventoryItem inventoryItem);
+    void updateQuality();
 
-    void updateSellInOf(InventoryItem inventoryItem);
+    void updateSellIn();
 
-    void updateExpiredItem(InventoryItem inventoryItem);
+    void updateExpiredItem();
 }

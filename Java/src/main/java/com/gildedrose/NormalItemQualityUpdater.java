@@ -9,17 +9,17 @@ class NormalItemQualityUpdater implements ItemQualityUpdater {
     }
 
     @Override
-    public void updateQualityOf(InventoryItem inventoryItem) {
+    public void updateQuality() {
         inventoryItem.decreaseQuality();
     }
 
     @Override
-    public void updateSellInOf(InventoryItem inventoryItem) {
+    public void updateSellIn() {
         inventoryItem.decreaseSellIn();
     }
 
     @Override
-    public void updateExpiredItem(InventoryItem inventoryItem) {
+    public void updateExpiredItem() {
         inventoryItem.decreaseQuality();
     }
 }

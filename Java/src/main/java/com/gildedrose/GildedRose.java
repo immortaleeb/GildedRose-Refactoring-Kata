@@ -17,12 +17,12 @@ class GildedRose {
         InventoryItem inventoryItem = new InventoryItem(item, parseItemType(item));
         ItemQualityUpdater itemQualityUpdater = ItemQualityUpdaterFactory.createFor(inventoryItem);
 
-        itemQualityUpdater.updateQualityOf(inventoryItem);
+        itemQualityUpdater.updateQuality();
 
-        itemQualityUpdater.updateSellInOf(inventoryItem);
+        itemQualityUpdater.updateSellIn();
 
         if (inventoryItem.isExpired()) {
-            itemQualityUpdater.updateExpiredItem(inventoryItem);
+            itemQualityUpdater.updateExpiredItem();
         }
     }
 
