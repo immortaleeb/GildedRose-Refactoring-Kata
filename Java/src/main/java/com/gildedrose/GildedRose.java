@@ -1,10 +1,17 @@
 package com.gildedrose;
 
 class GildedRose {
+
     Item[] items;
+    private final UpdateableInventoryItemFactory updateableInventoryItemFactory;
 
     public GildedRose(Item[] items) {
+        this(items, new UpdateableInventoryItemFactory());
+    }
+
+    public GildedRose(Item[] items, UpdateableInventoryItemFactory updateableInventoryItemFactory) {
         this.items = items;
+        this.updateableInventoryItemFactory = updateableInventoryItemFactory;
     }
 
     public void updateQuality() {
@@ -14,9 +21,7 @@ class GildedRose {
     }
 
     private void updateQualityOf(Item item) {
-        UpdateableInventoryItemFactory factory = new UpdateableInventoryItemFactory();
-
-        UpdateableInventoryItem inventoryItem = factory.createFor(item);
+        UpdateableInventoryItem inventoryItem = updateableInventoryItemFactory.createFor(item);
 
         inventoryItem.updateQuality();
 
