@@ -8,15 +8,15 @@ class InventoryItem {
     }
 
     public boolean isLegendary() {
-        return new ItemTypeParser().isLegendary(item.name);
+        return new ItemTypeParser().parse(item.name).equals(ItemType.LEGENDARY_ITEM);
     }
 
     public boolean isBackstagePass() {
-        return new ItemTypeParser().isBackstagePass(item.name);
+        return new ItemTypeParser().parse(item.name).equals(ItemType.BACKSTAGE_PASS);
     }
 
     public boolean isAgedBrie() {
-        return new ItemTypeParser().isAgedBrie(item.name);
+        return new ItemTypeParser().parse(item.name).equals(ItemType.AGED_BRIE);
     }
 
     public void decreaseSellIn() {
