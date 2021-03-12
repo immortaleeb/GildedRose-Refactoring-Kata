@@ -1,5 +1,8 @@
 package com.gildedrose;
 
+import com.gildedrose.items.UpdateableInventoryItem;
+import com.gildedrose.items.factory.UpdateableInventoryItemFactory;
+
 class GildedRose {
 
     Item[] items;

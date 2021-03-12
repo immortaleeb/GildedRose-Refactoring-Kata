@@ -1,4 +1,13 @@
-package com.gildedrose;
+package com.gildedrose.items.factory;
+
+import com.gildedrose.Item;
+import com.gildedrose.items.AgeableItem;
+import com.gildedrose.items.ConcertTicket;
+import com.gildedrose.items.LegendaryItem;
+import com.gildedrose.items.NormalItem;
+import com.gildedrose.items.UpdateableInventoryItem;
+import com.gildedrose.items.helper.InventoryItem;
+import com.gildedrose.items.helper.InventoryItemFactory;
 
 public class UpdateableInventoryItemFactory {
 

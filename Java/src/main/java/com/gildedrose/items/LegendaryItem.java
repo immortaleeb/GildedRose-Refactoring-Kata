@@ -1,6 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
-class LegendaryItem implements UpdateableInventoryItem {
+import com.gildedrose.items.helper.InventoryItem;
+
+public class LegendaryItem implements UpdateableInventoryItem {
 
     private final InventoryItem inventoryItem;
 

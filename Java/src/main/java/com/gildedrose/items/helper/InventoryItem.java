@@ -1,6 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.items.helper;
 
-class InventoryItem {
+import com.gildedrose.Item;
+
+public class InventoryItem {
     private final Item item;
     private final ItemType type;
 

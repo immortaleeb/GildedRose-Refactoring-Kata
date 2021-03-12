@@ -1,10 +1,12 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
-class NormalItem implements UpdateableInventoryItem {
+import com.gildedrose.items.helper.InventoryItem;
+
+public class AgeableItem implements UpdateableInventoryItem {
 
     private final InventoryItem inventoryItem;
 
-    public NormalItem(InventoryItem inventoryItem) {
+    public AgeableItem(InventoryItem inventoryItem) {
         this.inventoryItem = inventoryItem;
     }
 
@@ -15,7 +17,7 @@ class NormalItem implements UpdateableInventoryItem {
 
     @Override
     public void updateQuality() {
-        inventoryItem.decreaseQuality();
+        inventoryItem.increaseQuality();
     }
 
     @Override
@@ -25,6 +27,7 @@ class NormalItem implements UpdateableInventoryItem {
 
     @Override
     public void updateExpiredItem() {
-        inventoryItem.decreaseQuality();
+        inventoryItem.increaseQuality();
     }
+
 }

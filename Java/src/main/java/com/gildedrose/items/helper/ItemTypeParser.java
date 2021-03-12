@@ -1,4 +1,6 @@
-package com.gildedrose;
+package com.gildedrose.items.helper;
+
+import com.gildedrose.items.helper.ItemType;
 
 public class ItemTypeParser {
 

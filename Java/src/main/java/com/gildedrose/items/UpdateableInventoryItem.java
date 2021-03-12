@@ -1,6 +1,6 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
-interface UpdateableInventoryItem {
+public interface UpdateableInventoryItem {
     boolean isExpired();
 
     void updateQuality();

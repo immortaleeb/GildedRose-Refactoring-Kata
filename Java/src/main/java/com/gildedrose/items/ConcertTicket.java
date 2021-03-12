@@ -1,6 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.items;
 
-class ConcertTicket implements UpdateableInventoryItem {
+import com.gildedrose.items.helper.InventoryItem;
+
+public class ConcertTicket implements UpdateableInventoryItem {
 
     private final InventoryItem inventoryItem;
 

@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.items.helper;
 
 public enum ItemType {
     AGEABLE_ITEM,
