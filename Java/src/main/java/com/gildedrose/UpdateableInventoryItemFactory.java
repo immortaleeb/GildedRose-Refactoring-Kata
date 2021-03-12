@@ -21,8 +21,8 @@ public class UpdateableInventoryItemFactory {
         switch (inventoryItem.type()) {
             case AGEABLE_ITEM:
                 return new AgeableItem(inventoryItem);
-            case BACKSTAGE_PASS:
-                return new BackstagePass(inventoryItem);
+            case CONCERT_TICKET:
+                return new ConcertTicket(inventoryItem);
             case LEGENDARY_ITEM:
                 return new LegendaryItem(inventoryItem);
             default:

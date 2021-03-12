@@ -1,10 +1,10 @@
 package com.gildedrose;
 
-class BackstagePass implements UpdateableInventoryItem {
+class ConcertTicket implements UpdateableInventoryItem {
 
     private final InventoryItem inventoryItem;
 
-    public BackstagePass(InventoryItem inventoryItem) {
+    public ConcertTicket(InventoryItem inventoryItem) {
         this.inventoryItem = inventoryItem;
     }
 

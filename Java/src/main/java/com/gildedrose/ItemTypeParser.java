@@ -7,7 +7,7 @@ public class ItemTypeParser {
             case "Sulfuras, Hand of Ragnaros":
                 return ItemType.LEGENDARY_ITEM;
             case "Backstage passes to a TAFKAL80ETC concert":
-                return ItemType.BACKSTAGE_PASS;
+                return ItemType.CONCERT_TICKET;
             case "Aged Brie":
                 return ItemType.AGEABLE_ITEM;
             default:

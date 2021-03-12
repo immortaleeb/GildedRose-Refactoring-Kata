@@ -2,7 +2,7 @@ package com.gildedrose;
 
 public enum ItemType {
     AGEABLE_ITEM,
-    BACKSTAGE_PASS,
+    CONCERT_TICKET,
     LEGENDARY_ITEM,
     NORMAL_ITEM,
     ;
