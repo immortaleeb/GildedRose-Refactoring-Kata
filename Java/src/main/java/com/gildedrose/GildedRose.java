@@ -27,21 +27,13 @@ class GildedRose {
 
     private void handleQualityUpdate(InventoryItem inventoryItem) {
         if (inventoryItem.isAgedBrie()) {
-            inventoryItem.increaseQuality();
+            new AgedBrieItemQualityUpdater().updateQualityOf(inventoryItem);
         } else if (inventoryItem.isBackstagePass()) {
-            inventoryItem.increaseQuality();
-
-            if (inventoryItem.sellsIn(11)) {
-                inventoryItem.increaseQuality();
-            }
-
-            if (inventoryItem.sellsIn(6)) {
-                inventoryItem.increaseQuality();
-            }
+            new BackstagePassItemQualityUpdater().updateQualityOf(inventoryItem);
         } else if (inventoryItem.isLegendary()) {
-            inventoryItem.increaseQuality();
+            new LegendaryItemQualityUpdater().updateQualityOf(inventoryItem);
         } else {
-            inventoryItem.decreaseQuality();
+            new NormalItemQualityUpdater().updateQualityOf(inventoryItem);
         }
     }
 
@@ -65,6 +57,51 @@ class GildedRose {
         } else if (inventoryItem.isLegendary()) {
             // do nothing
         } else {
+            inventoryItem.decreaseQuality();
+        }
+    }
+
+    private interface ItemQualityUpdater {
+        void updateQualityOf(InventoryItem inventoryItem);
+    }
+
+    private static class AgedBrieItemQualityUpdater implements ItemQualityUpdater {
+
+        @Override
+        public void updateQualityOf(InventoryItem inventoryItem) {
+            inventoryItem.increaseQuality();
+        }
+
+    }
+
+    private static class BackstagePassItemQualityUpdater implements ItemQualityUpdater {
+
+        @Override
+        public void updateQualityOf(InventoryItem inventoryItem) {
+            inventoryItem.increaseQuality();
+
+            if (inventoryItem.sellsIn(11)) {
+                inventoryItem.increaseQuality();
+            }
+
+            if (inventoryItem.sellsIn(6)) {
+                inventoryItem.increaseQuality();
+            }
+        }
+    }
+
+    private static class LegendaryItemQualityUpdater implements ItemQualityUpdater {
+
+        @Override
+        public void updateQualityOf(InventoryItem inventoryItem) {
+            inventoryItem.increaseQuality();
+        }
+    }
+
+    private static class NormalItemQualityUpdater implements ItemQualityUpdater {
+
+        @Override
+        public void updateQualityOf(InventoryItem inventoryItem) {
             inventoryItem.decreaseQuality();
         }
     }
