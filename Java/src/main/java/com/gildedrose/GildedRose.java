@@ -15,7 +15,9 @@ class GildedRose {
 
     private void updateQualityOf(Item item) {
         InventoryItem inventoryItem = new InventoryItem(item, parseItemType(item));
-        UpdateableInventoryItem updateableInventoryItem = UpdateableInventoryItemFactory.createFor(inventoryItem);
+        UpdateableInventoryItemFactory factory = new UpdateableInventoryItemFactory();
+
+        UpdateableInventoryItem updateableInventoryItem = factory.createFor(inventoryItem);
 
         updateableInventoryItem.updateQuality();
 

@@ -2,7 +2,7 @@ package com.gildedrose;
 
 public class UpdateableInventoryItemFactory {
 
-    public static UpdateableInventoryItem createFor(InventoryItem inventoryItem) {
+    public UpdateableInventoryItem createFor(InventoryItem inventoryItem) {
         ItemType itemType = inventoryItem.type();
 
         switch (itemType) {
