@@ -13,18 +13,6 @@ class InventoryItem {
         return type;
     }
 
-    public boolean isLegendary() {
-        return type().equals(ItemType.LEGENDARY_ITEM);
-    }
-
-    public boolean isBackstagePass() {
-        return type().equals(ItemType.BACKSTAGE_PASS);
-    }
-
-    public boolean isAgedBrie() {
-        return type().equals(ItemType.AGED_BRIE);
-    }
-
     public void decreaseSellIn() {
         item.sellIn = item.sellIn - 1;
     }

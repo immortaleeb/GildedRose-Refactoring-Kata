@@ -3,14 +3,17 @@ package com.gildedrose;
 public class ItemQualityUpdaterFactory {
 
     public static ItemQualityUpdater createFor(InventoryItem inventoryItem) {
-        if (inventoryItem.isAgedBrie()) {
-            return new AgedBrieItemQualityUpdater();
-        } else if (inventoryItem.isBackstagePass()) {
-            return new BackstagePassItemQualityUpdater();
-        } else if (inventoryItem.isLegendary()) {
-            return new LegendaryItemQualityUpdater();
-        } else {
-            return new NormalItemQualityUpdater();
+        ItemType itemType = inventoryItem.type();
+
+        switch (itemType) {
+            case AGED_BRIE:
+                return new AgedBrieItemQualityUpdater();
+            case BACKSTAGE_PASS:
+                return new BackstagePassItemQualityUpdater();
+            case LEGENDARY_ITEM:
+                return new LegendaryItemQualityUpdater();
+            default:
+                return new NormalItemQualityUpdater();
         }
     }
 
