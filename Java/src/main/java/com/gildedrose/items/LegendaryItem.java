@@ -17,7 +17,7 @@ public class LegendaryItem implements UpdateableInventoryItem {
 
     @Override
     public void updateQuality() {
-        inventoryItem.increaseQuality();
+        // nothing to do
     }
 
 }
