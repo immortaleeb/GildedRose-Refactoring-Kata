@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-interface ItemQualityUpdater {
+interface UpdateableInventoryItem {
     void updateQuality();
 
     void updateSellIn();

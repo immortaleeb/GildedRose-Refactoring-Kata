@@ -1,10 +1,10 @@
 package com.gildedrose;
 
-class LegendaryItemQualityUpdater implements ItemQualityUpdater {
+class AgedBrie implements UpdateableInventoryItem {
 
     private final InventoryItem inventoryItem;
 
-    public LegendaryItemQualityUpdater(InventoryItem inventoryItem) {
+    public AgedBrie(InventoryItem inventoryItem) {
         this.inventoryItem = inventoryItem;
     }
 
@@ -15,11 +15,12 @@ class LegendaryItemQualityUpdater implements ItemQualityUpdater {
 
     @Override
     public void updateSellIn() {
-        // nothing to do
+        inventoryItem.decreaseSellIn();
     }
 
     @Override
     public void updateExpiredItem() {
-        // nothing to do
+        inventoryItem.increaseQuality();
     }
+
 }

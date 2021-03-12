@@ -1,10 +1,10 @@
 package com.gildedrose;
 
-class BackstagePassItemQualityUpdater implements ItemQualityUpdater {
+class BackstagePass implements UpdateableInventoryItem {
 
     private final InventoryItem inventoryItem;
 
-    public BackstagePassItemQualityUpdater(InventoryItem inventoryItem) {
+    public BackstagePass(InventoryItem inventoryItem) {
         this.inventoryItem = inventoryItem;
     }
 

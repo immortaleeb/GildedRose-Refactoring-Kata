@@ -1,25 +1,25 @@
 package com.gildedrose;
 
-class NormalItemQualityUpdater implements ItemQualityUpdater {
+class LegendaryItem implements UpdateableInventoryItem {
 
     private final InventoryItem inventoryItem;
 
-    public NormalItemQualityUpdater(InventoryItem inventoryItem) {
+    public LegendaryItem(InventoryItem inventoryItem) {
         this.inventoryItem = inventoryItem;
     }
 
     @Override
     public void updateQuality() {
-        inventoryItem.decreaseQuality();
+        inventoryItem.increaseQuality();
     }
 
     @Override
     public void updateSellIn() {
-        inventoryItem.decreaseSellIn();
+        // nothing to do
     }
 
     @Override
     public void updateExpiredItem() {
-        inventoryItem.decreaseQuality();
+        // nothing to do
     }
 }

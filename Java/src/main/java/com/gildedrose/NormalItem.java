@@ -1,16 +1,16 @@
 package com.gildedrose;
 
-class AgedBrieItemQualityUpdater implements ItemQualityUpdater {
+class NormalItem implements UpdateableInventoryItem {
 
     private final InventoryItem inventoryItem;
 
-    public AgedBrieItemQualityUpdater(InventoryItem inventoryItem) {
+    public NormalItem(InventoryItem inventoryItem) {
         this.inventoryItem = inventoryItem;
     }
 
     @Override
     public void updateQuality() {
-        inventoryItem.increaseQuality();
+        inventoryItem.decreaseQuality();
     }
 
     @Override
@@ -20,7 +20,6 @@ class AgedBrieItemQualityUpdater implements ItemQualityUpdater {
 
     @Override
     public void updateExpiredItem() {
-        inventoryItem.increaseQuality();
+        inventoryItem.decreaseQuality();
     }
-
 }
