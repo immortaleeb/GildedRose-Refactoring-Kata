@@ -17,18 +17,18 @@ public class ConcertTicket implements UpdateableInventoryItem {
 
     @Override
     public void updateQuality() {
-        inventoryItem.increaseQuality();
-
-        if (inventoryItem.sellsIn(10)) {
-            inventoryItem.increaseQuality();
-        }
-
-        if (inventoryItem.sellsIn(5)) {
-            inventoryItem.increaseQuality();
-        }
-
         if (inventoryItem.isExpired()) {
             inventoryItem.dropQuality();
+        } else {
+            inventoryItem.increaseQuality();
+
+            if (inventoryItem.sellsIn(10)) {
+                inventoryItem.increaseQuality();
+            }
+
+            if (inventoryItem.sellsIn(5)) {
+                inventoryItem.increaseQuality();
+            }
         }
     }
 

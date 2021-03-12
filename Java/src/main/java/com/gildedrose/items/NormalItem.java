@@ -17,9 +17,9 @@ public class NormalItem implements UpdateableInventoryItem {
 
     @Override
     public void updateQuality() {
-        inventoryItem.decreaseQuality();
-
         if (inventoryItem.isExpired()) {
+            inventoryItem.decreaseQuality(2);
+        } else {
             inventoryItem.decreaseQuality();
         }
     }
