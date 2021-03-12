@@ -1,10 +1,10 @@
 package com.gildedrose;
 
-class AgedBrie implements UpdateableInventoryItem {
+class AgeableItem implements UpdateableInventoryItem {
 
     private final InventoryItem inventoryItem;
 
-    public AgedBrie(InventoryItem inventoryItem) {
+    public AgeableItem(InventoryItem inventoryItem) {
         this.inventoryItem = inventoryItem;
     }
 

@@ -19,8 +19,8 @@ public class UpdateableInventoryItemFactory {
 
     private UpdateableInventoryItem createFor(InventoryItem inventoryItem) {
         switch (inventoryItem.type()) {
-            case AGED_BRIE:
-                return new AgedBrie(inventoryItem);
+            case AGEABLE_ITEM:
+                return new AgeableItem(inventoryItem);
             case BACKSTAGE_PASS:
                 return new BackstagePass(inventoryItem);
             case LEGENDARY_ITEM:

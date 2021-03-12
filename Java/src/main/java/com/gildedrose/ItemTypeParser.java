@@ -9,7 +9,7 @@ public class ItemTypeParser {
             case "Backstage passes to a TAFKAL80ETC concert":
                 return ItemType.BACKSTAGE_PASS;
             case "Aged Brie":
-                return ItemType.AGED_BRIE;
+                return ItemType.AGEABLE_ITEM;
             default:
                 return ItemType.NORMAL_ITEM;
         }

@@ -1,7 +1,7 @@
 package com.gildedrose;
 
 public enum ItemType {
-    AGED_BRIE,
+    AGEABLE_ITEM,
     BACKSTAGE_PASS,
     LEGENDARY_ITEM,
     NORMAL_ITEM,
