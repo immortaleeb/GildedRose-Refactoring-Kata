@@ -44,13 +44,13 @@ class GildedRose {
 
     private void handleSellInUpdate(InventoryItem inventoryItem) {
         if (inventoryItem.isAgedBrie()) {
-            inventoryItem.decreaseSellIn();
+            new AgedBrieItemQualityUpdater().updateSellInOf(inventoryItem);
         } else if (inventoryItem.isBackstagePass()) {
-            inventoryItem.decreaseSellIn();
+            new BackstagePassItemQualityUpdater().updateSellInOf(inventoryItem);
         } else if (inventoryItem.isLegendary()) {
-            // do nothing
+            new LegendaryItemQualityUpdater().updateSellInOf(inventoryItem);
         } else {
-            inventoryItem.decreaseSellIn();
+            new NormalItemQualityUpdater().updateSellInOf(inventoryItem);
         }
     }
 
@@ -68,6 +68,8 @@ class GildedRose {
 
     private interface ItemQualityUpdater {
         void updateQualityOf(InventoryItem inventoryItem);
+
+        void updateSellInOf(InventoryItem inventoryItem);
     }
 
     private static class AgedBrieItemQualityUpdater implements ItemQualityUpdater {
@@ -75,6 +77,11 @@ class GildedRose {
         @Override
         public void updateQualityOf(InventoryItem inventoryItem) {
             inventoryItem.increaseQuality();
+        }
+
+        @Override
+        public void updateSellInOf(InventoryItem inventoryItem) {
+            inventoryItem.decreaseSellIn();
         }
 
     }
@@ -93,6 +100,11 @@ class GildedRose {
                 inventoryItem.increaseQuality();
             }
         }
+
+        @Override
+        public void updateSellInOf(InventoryItem inventoryItem) {
+            inventoryItem.decreaseSellIn();
+        }
     }
 
     private static class LegendaryItemQualityUpdater implements ItemQualityUpdater {
@@ -101,6 +113,11 @@ class GildedRose {
         public void updateQualityOf(InventoryItem inventoryItem) {
             inventoryItem.increaseQuality();
         }
+
+        @Override
+        public void updateSellInOf(InventoryItem inventoryItem) {
+            // nothing to do
+        }
     }
 
     private static class NormalItemQualityUpdater implements ItemQualityUpdater {
@@ -108,6 +125,11 @@ class GildedRose {
         @Override
         public void updateQualityOf(InventoryItem inventoryItem) {
             inventoryItem.decreaseQuality();
+        }
+
+        @Override
+        public void updateSellInOf(InventoryItem inventoryItem) {
+            inventoryItem.decreaseSellIn();
         }
     }
 
