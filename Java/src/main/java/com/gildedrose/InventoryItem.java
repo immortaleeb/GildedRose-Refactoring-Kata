@@ -8,15 +8,15 @@ class InventoryItem {
     }
 
     public boolean isLegendary() {
-        return item.name.equals("Sulfuras, Hand of Ragnaros");
+        return new ItemTypeParser().isLegendary(item.name);
     }
 
     public boolean isBackstagePass() {
-        return item.name.equals("Backstage passes to a TAFKAL80ETC concert");
+        return new ItemTypeParser().isBackstagePass(item.name);
     }
 
     public boolean isAgedBrie() {
-        return item.name.equals("Aged Brie");
+        return new ItemTypeParser().isAgedBrie(item.name);
     }
 
     public void decreaseSellIn() {
