@@ -43,15 +43,8 @@ class GildedRose {
     }
 
     private void handleSellInUpdate(InventoryItem inventoryItem) {
-        if (inventoryItem.isAgedBrie()) {
-            new AgedBrieItemQualityUpdater().updateSellInOf(inventoryItem);
-        } else if (inventoryItem.isBackstagePass()) {
-            new BackstagePassItemQualityUpdater().updateSellInOf(inventoryItem);
-        } else if (inventoryItem.isLegendary()) {
-            new LegendaryItemQualityUpdater().updateSellInOf(inventoryItem);
-        } else {
-            new NormalItemQualityUpdater().updateSellInOf(inventoryItem);
-        }
+        ItemQualityUpdater itemQualityUpdater = createItemQualityUpdater(inventoryItem);
+        itemQualityUpdater.updateSellInOf(inventoryItem);
     }
 
     private void handleExpirationUpdate(InventoryItem inventoryItem) {
