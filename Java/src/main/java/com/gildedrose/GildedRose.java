@@ -29,10 +29,6 @@ class GildedRose {
         inventoryItem.updateSellIn();
 
         inventoryItem.updateQuality();
-
-        if (inventoryItem.isExpired()) {
-            inventoryItem.updateExpiredItem();
-        }
     }
 
 }

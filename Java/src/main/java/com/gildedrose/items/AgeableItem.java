@@ -11,11 +11,6 @@ public class AgeableItem implements UpdateableInventoryItem {
     }
 
     @Override
-    public boolean isExpired() {
-        return inventoryItem.isExpired();
-    }
-
-    @Override
     public void updateSellIn() {
         inventoryItem.decreaseSellIn();
     }
@@ -27,11 +22,6 @@ public class AgeableItem implements UpdateableInventoryItem {
         if (inventoryItem.isExpired()) {
             inventoryItem.increaseQuality();
         }
-    }
-
-    @Override
-    public void updateExpiredItem() {
-
     }
 
 }

@@ -11,11 +11,6 @@ public class NormalItem implements UpdateableInventoryItem {
     }
 
     @Override
-    public boolean isExpired() {
-        return inventoryItem.isExpired();
-    }
-
-    @Override
     public void updateSellIn() {
         inventoryItem.decreaseSellIn();
     }
@@ -29,8 +24,4 @@ public class NormalItem implements UpdateableInventoryItem {
         }
     }
 
-    @Override
-    public void updateExpiredItem() {
-
-    }
 }

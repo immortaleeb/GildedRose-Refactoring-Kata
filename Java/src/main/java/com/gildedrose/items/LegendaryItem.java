@@ -11,11 +11,6 @@ public class LegendaryItem implements UpdateableInventoryItem {
     }
 
     @Override
-    public boolean isExpired() {
-        return inventoryItem.isExpired();
-    }
-
-    @Override
     public void updateSellIn() {
         // nothing to do
     }
@@ -25,8 +20,4 @@ public class LegendaryItem implements UpdateableInventoryItem {
         inventoryItem.increaseQuality();
     }
 
-    @Override
-    public void updateExpiredItem() {
-        // nothing to do
-    }
 }
