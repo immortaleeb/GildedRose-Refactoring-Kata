@@ -31,10 +31,14 @@ public class ConcertTicket implements UpdateableInventoryItem {
         if (inventoryItem.sellsIn(5)) {
             inventoryItem.increaseQuality();
         }
+
+        if (inventoryItem.isExpired()) {
+            inventoryItem.dropQuality();
+        }
     }
 
     @Override
     public void updateExpiredItem() {
-        inventoryItem.dropQuality();
+
     }
 }

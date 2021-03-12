@@ -23,11 +23,15 @@ public class AgeableItem implements UpdateableInventoryItem {
     @Override
     public void updateQuality() {
         inventoryItem.increaseQuality();
+
+        if (inventoryItem.isExpired()) {
+            inventoryItem.increaseQuality();
+        }
     }
 
     @Override
     public void updateExpiredItem() {
-        inventoryItem.increaseQuality();
+
     }
 
 }
