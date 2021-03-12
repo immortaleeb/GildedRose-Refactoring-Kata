@@ -15,19 +15,15 @@ class GildedRose {
 
     private void updateQualityOf(Item item) {
         InventoryItem inventoryItem = new InventoryItem(item);
+        ItemQualityUpdater itemQualityUpdater = createItemQualityUpdater(inventoryItem);
 
-        handleQualityUpdate(inventoryItem);
+        itemQualityUpdater.updateQualityOf(inventoryItem);
 
-        handleSellInUpdate(inventoryItem);
+        itemQualityUpdater.updateSellInOf(inventoryItem);
 
         if (inventoryItem.isExpired()) {
-            handleExpirationUpdate(inventoryItem);
+            itemQualityUpdater.updateExpiredItem(inventoryItem);
         }
-    }
-
-    private void handleQualityUpdate(InventoryItem inventoryItem) {
-        ItemQualityUpdater itemQualityUpdater = createItemQualityUpdater(inventoryItem);
-        itemQualityUpdater.updateQualityOf(inventoryItem);
     }
 
     private ItemQualityUpdater createItemQualityUpdater(InventoryItem inventoryItem) {
@@ -40,16 +36,6 @@ class GildedRose {
         } else {
             return new NormalItemQualityUpdater();
         }
-    }
-
-    private void handleSellInUpdate(InventoryItem inventoryItem) {
-        ItemQualityUpdater itemQualityUpdater = createItemQualityUpdater(inventoryItem);
-        itemQualityUpdater.updateSellInOf(inventoryItem);
-    }
-
-    private void handleExpirationUpdate(InventoryItem inventoryItem) {
-        ItemQualityUpdater itemQualityUpdater = createItemQualityUpdater(inventoryItem);
-        itemQualityUpdater.updateExpiredItem(inventoryItem);
     }
 
 }
