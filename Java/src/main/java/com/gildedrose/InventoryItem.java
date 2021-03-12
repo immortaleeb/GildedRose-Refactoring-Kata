@@ -7,16 +7,20 @@ class InventoryItem {
         this.item = item;
     }
 
+    public ItemType type() {
+        return new ItemTypeParser().parse(item.name);
+    }
+
     public boolean isLegendary() {
-        return new ItemTypeParser().parse(item.name).equals(ItemType.LEGENDARY_ITEM);
+        return type().equals(ItemType.LEGENDARY_ITEM);
     }
 
     public boolean isBackstagePass() {
-        return new ItemTypeParser().parse(item.name).equals(ItemType.BACKSTAGE_PASS);
+        return type().equals(ItemType.BACKSTAGE_PASS);
     }
 
     public boolean isAgedBrie() {
-        return new ItemTypeParser().parse(item.name).equals(ItemType.AGED_BRIE);
+        return type().equals(ItemType.AGED_BRIE);
     }
 
     public void decreaseSellIn() {
