@@ -26,14 +26,19 @@ class GildedRose {
     }
 
     private void handleQualityUpdate(InventoryItem inventoryItem) {
+        ItemQualityUpdater itemQualityUpdater = createItemQualityUpdater(inventoryItem);
+        itemQualityUpdater.updateQualityOf(inventoryItem);
+    }
+
+    private ItemQualityUpdater createItemQualityUpdater(InventoryItem inventoryItem) {
         if (inventoryItem.isAgedBrie()) {
-            new AgedBrieItemQualityUpdater().updateQualityOf(inventoryItem);
+            return new AgedBrieItemQualityUpdater();
         } else if (inventoryItem.isBackstagePass()) {
-            new BackstagePassItemQualityUpdater().updateQualityOf(inventoryItem);
+            return new BackstagePassItemQualityUpdater();
         } else if (inventoryItem.isLegendary()) {
-            new LegendaryItemQualityUpdater().updateQualityOf(inventoryItem);
+            return new LegendaryItemQualityUpdater();
         } else {
-            new NormalItemQualityUpdater().updateQualityOf(inventoryItem);
+            return new NormalItemQualityUpdater();
         }
     }
 
