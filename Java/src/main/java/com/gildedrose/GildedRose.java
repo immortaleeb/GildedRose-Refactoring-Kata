@@ -14,7 +14,7 @@ class GildedRose {
     }
 
     private void updateQualityOf(Item item) {
-        InventoryItem inventoryItem = new InventoryItem(item);
+        InventoryItem inventoryItem = new InventoryItem(item, parseItemType(item));
         ItemQualityUpdater itemQualityUpdater = ItemQualityUpdaterFactory.createFor(inventoryItem);
 
         itemQualityUpdater.updateQualityOf(inventoryItem);
@@ -24,6 +24,10 @@ class GildedRose {
         if (inventoryItem.isExpired()) {
             itemQualityUpdater.updateExpiredItem(inventoryItem);
         }
+    }
+
+    private ItemType parseItemType(Item item) {
+        return new ItemTypeParser().parse(item.name);
     }
 
 }

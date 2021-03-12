@@ -2,13 +2,15 @@ package com.gildedrose;
 
 class InventoryItem {
     private final Item item;
+    private final ItemType type;
 
-    public InventoryItem(Item item) {
+    public InventoryItem(Item item, ItemType type) {
         this.item = item;
+        this.type = type;
     }
 
     public ItemType type() {
-        return new ItemTypeParser().parse(item.name);
+        return type;
     }
 
     public boolean isLegendary() {
