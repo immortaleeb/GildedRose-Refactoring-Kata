@@ -2,7 +2,7 @@ package com.gildedrose.items;
 
 import com.gildedrose.items.helper.InventoryItem;
 
-abstract class ExpireableItem implements UpdateableInventoryItem {
+abstract class ExpireableItem implements UpdateableItem {
 
     private final InventoryItem inventoryItem;
 

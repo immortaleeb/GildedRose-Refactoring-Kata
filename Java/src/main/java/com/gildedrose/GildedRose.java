@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-import com.gildedrose.items.UpdateableInventoryItem;
+import com.gildedrose.items.UpdateableItem;
 import com.gildedrose.items.factory.UpdateableInventoryItemFactory;
 
 class GildedRose {
@@ -24,8 +24,8 @@ class GildedRose {
     }
 
     private void updateQualityOf(Item item) {
-        UpdateableInventoryItem inventoryItem = updateableInventoryItemFactory.createFor(item);
-        inventoryItem.update();
+        UpdateableItem updateableItem = updateableInventoryItemFactory.createFor(item);
+        updateableItem.update();
     }
 
 }

@@ -5,7 +5,7 @@ import com.gildedrose.items.AgeableItem;
 import com.gildedrose.items.ConcertTicket;
 import com.gildedrose.items.LegendaryItem;
 import com.gildedrose.items.NormalItem;
-import com.gildedrose.items.UpdateableInventoryItem;
+import com.gildedrose.items.UpdateableItem;
 import com.gildedrose.items.helper.InventoryItem;
 import com.gildedrose.items.helper.ItemType;
 import com.gildedrose.items.helper.ItemTypeParser;
@@ -22,14 +22,14 @@ public class UpdateableInventoryItemFactory {
         this(new ItemTypeParser());
     }
 
-    public UpdateableInventoryItem createFor(Item item) {
+    public UpdateableItem createFor(Item item) {
         ItemType itemType = itemTypeParser.parse(item.name);
         InventoryItem inventoryItem = new InventoryItem(item);
 
         return createFor(itemType, inventoryItem);
     }
 
-    private UpdateableInventoryItem createFor(ItemType itemType, InventoryItem inventoryItem) {
+    private UpdateableItem createFor(ItemType itemType, InventoryItem inventoryItem) {
         switch (itemType) {
             case AGEABLE_ITEM:
                 return new AgeableItem(inventoryItem);

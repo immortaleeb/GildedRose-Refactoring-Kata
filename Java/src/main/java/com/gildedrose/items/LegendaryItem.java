@@ -1,6 +1,6 @@
 package com.gildedrose.items;
 
-public class LegendaryItem implements UpdateableInventoryItem {
+public class LegendaryItem implements UpdateableItem {
 
     @Override
     public void update() {
