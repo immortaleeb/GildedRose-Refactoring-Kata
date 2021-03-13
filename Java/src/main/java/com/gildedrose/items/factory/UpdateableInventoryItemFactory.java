@@ -40,8 +40,10 @@ public class UpdateableInventoryItemFactory {
                 return new LegendaryItem();
             case CONJURED_ITEM:
                 return new ConjuredItem(inventoryItem);
-            default:
+            case NORMAL_ITEM:
                 return new NormalItem(inventoryItem);
+            default:
+                throw new IllegalArgumentException("Cannot create updateable item for unknown type " + itemType);
         }
     }
 
