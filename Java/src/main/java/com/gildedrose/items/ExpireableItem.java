@@ -11,12 +11,16 @@ abstract class ExpireableItem implements UpdateableInventoryItem {
     }
 
     @Override
-    public void updateSellIn() {
+    public void update() {
+        updateSellIn();
+        updateQuality();
+    }
+
+    private void updateSellIn() {
         inventoryItem.decreaseSellIn();
     }
 
-    @Override
-    public void updateQuality() {
+    private void updateQuality() {
         if (inventoryItem.isExpired()) {
             updateExpired(inventoryItem);
         } else {
