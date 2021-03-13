@@ -2,33 +2,27 @@ package com.gildedrose.items;
 
 import com.gildedrose.items.helper.InventoryItem;
 
-public class ConcertTicket implements UpdateableInventoryItem {
-
-    private final InventoryItem inventoryItem;
+public class ConcertTicket extends ExpireableItem {
 
     public ConcertTicket(InventoryItem inventoryItem) {
-        this.inventoryItem = inventoryItem;
+        super(inventoryItem);
     }
 
     @Override
-    public void updateSellIn() {
-        inventoryItem.decreaseSellIn();
+    protected void updateExpired(InventoryItem inventoryItem) {
+        inventoryItem.dropQuality();
     }
 
     @Override
-    public void updateQuality() {
-        if (inventoryItem.isExpired()) {
-            inventoryItem.dropQuality();
-        } else {
+    protected void updateNotExpired(InventoryItem inventoryItem) {
+        inventoryItem.increaseQuality();
+
+        if (inventoryItem.sellsIn(10)) {
             inventoryItem.increaseQuality();
+        }
 
-            if (inventoryItem.sellsIn(10)) {
-                inventoryItem.increaseQuality();
-            }
-
-            if (inventoryItem.sellsIn(5)) {
-                inventoryItem.increaseQuality();
-            }
+        if (inventoryItem.sellsIn(5)) {
+            inventoryItem.increaseQuality();
         }
     }
 

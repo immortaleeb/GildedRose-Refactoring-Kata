@@ -2,26 +2,20 @@ package com.gildedrose.items;
 
 import com.gildedrose.items.helper.InventoryItem;
 
-public class NormalItem implements UpdateableInventoryItem {
-
-    private final InventoryItem inventoryItem;
+public class NormalItem extends ExpireableItem {
 
     public NormalItem(InventoryItem inventoryItem) {
-        this.inventoryItem = inventoryItem;
+        super(inventoryItem);
     }
 
     @Override
-    public void updateSellIn() {
-        inventoryItem.decreaseSellIn();
+    protected void updateExpired(InventoryItem inventoryItem) {
+        inventoryItem.decreaseQuality(2);
     }
 
     @Override
-    public void updateQuality() {
-        if (inventoryItem.isExpired()) {
-            inventoryItem.decreaseQuality(2);
-        } else {
-            inventoryItem.decreaseQuality();
-        }
+    protected void updateNotExpired(InventoryItem inventoryItem) {
+        inventoryItem.decreaseQuality();
     }
 
 }
