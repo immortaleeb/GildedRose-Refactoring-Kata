@@ -13,7 +13,7 @@ class InventoryItemTest {
     @Test
     void increaseQuality_increases_quality_by_1() {
         Item item = ItemFixtures.aRegularItem(10, 5);
-        InventoryItem inventoryItem = new InventoryItem(item, ItemType.NORMAL_ITEM);
+        InventoryItem inventoryItem = new InventoryItem(item);
 
         inventoryItem.increaseQuality();
 
@@ -23,7 +23,7 @@ class InventoryItemTest {
     @Test
     void increaseQuality_does_not_increase_quality_above_50() {
         Item item = ItemFixtures.aRegularItem(10, 50);
-        InventoryItem inventoryItem = new InventoryItem(item, ItemType.NORMAL_ITEM);
+        InventoryItem inventoryItem = new InventoryItem(item);
 
         inventoryItem.increaseQuality();
 
@@ -33,7 +33,7 @@ class InventoryItemTest {
     @Test
     void increaseQuality_increases_quality_by_3() {
         Item item = ItemFixtures.aRegularItem(10, 5);
-        InventoryItem inventoryItem = new InventoryItem(item, ItemType.NORMAL_ITEM);
+        InventoryItem inventoryItem = new InventoryItem(item);
 
         inventoryItem.increaseQuality(3);
 
@@ -43,7 +43,7 @@ class InventoryItemTest {
     @Test
     void increaseQuality_cannot_increase_quality_above_50() {
         Item item = ItemFixtures.aRegularItem(10, 48);
-        InventoryItem inventoryItem = new InventoryItem(item, ItemType.NORMAL_ITEM);
+        InventoryItem inventoryItem = new InventoryItem(item);
 
         inventoryItem.increaseQuality(3);
 
@@ -53,7 +53,7 @@ class InventoryItemTest {
     @Test
     void decreaseQuality_decreases_quality_by_1() {
         Item item = ItemFixtures.aRegularItem(10, 5);
-        InventoryItem inventoryItem = new InventoryItem(item, ItemType.NORMAL_ITEM);
+        InventoryItem inventoryItem = new InventoryItem(item);
 
         inventoryItem.decreaseQuality();
 
@@ -63,7 +63,7 @@ class InventoryItemTest {
     @Test
     void decreaseQuality_cannot_decrease_quality_below_0() {
         Item item = ItemFixtures.aRegularItem(10, 0);
-        InventoryItem inventoryItem = new InventoryItem(item, ItemType.NORMAL_ITEM);
+        InventoryItem inventoryItem = new InventoryItem(item);
 
         inventoryItem.decreaseQuality();
 
@@ -73,7 +73,7 @@ class InventoryItemTest {
     @Test
     void decreaseQuality_decreases_quality_by_3() {
         Item item = ItemFixtures.aRegularItem(10, 5);
-        InventoryItem inventoryItem = new InventoryItem(item, ItemType.NORMAL_ITEM);
+        InventoryItem inventoryItem = new InventoryItem(item);
 
         inventoryItem.decreaseQuality(3);
 
@@ -83,7 +83,7 @@ class InventoryItemTest {
     @Test
     void decreaseQuality_does_not_decreases_quality_below_0() {
         Item item = ItemFixtures.aRegularItem(10, 2);
-        InventoryItem inventoryItem = new InventoryItem(item, ItemType.NORMAL_ITEM);
+        InventoryItem inventoryItem = new InventoryItem(item);
 
         inventoryItem.decreaseQuality(3);
 

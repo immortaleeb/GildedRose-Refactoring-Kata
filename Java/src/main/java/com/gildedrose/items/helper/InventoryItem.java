@@ -7,15 +7,9 @@ public class InventoryItem {
     private static final int MIN_QUALITY = 0;
 
     private final Item item;
-    private final ItemType type;
 
-    public InventoryItem(Item item, ItemType type) {
+    public InventoryItem(Item item) {
         this.item = item;
-        this.type = type;
-    }
-
-    public ItemType type() {
-        return type;
     }
 
     public void decreaseSellIn() {
