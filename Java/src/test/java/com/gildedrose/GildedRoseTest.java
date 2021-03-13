@@ -3,6 +3,7 @@ package com.gildedrose;
 import org.junit.jupiter.api.Test;
 
 import static com.gildedrose.ItemFixtures.aBackstagePass;
+import static com.gildedrose.ItemFixtures.aConjuredItem;
 import static com.gildedrose.ItemFixtures.aLegendaryItem;
 import static com.gildedrose.ItemFixtures.aRegularItem;
 import static com.gildedrose.ItemFixtures.agedBrie;
@@ -110,6 +111,24 @@ class GildedRoseTest {
         updateQualityOf(backstagePass);
 
         assertThat(backstagePass.quality, is(equalTo(0)));
+    }
+
+    @Test
+    void updateQuality_decreases_quality_by_2_for_conjured_item() {
+        Item conjuredItem = aConjuredItem(5, 10);
+
+        updateQualityOf(conjuredItem);
+
+        assertThat(conjuredItem.quality, is(equalTo(10 - 2)));
+    }
+
+    @Test
+    void updateQuality_decreases_quality_by_4_for_expired_conjured_item() {
+        Item conjuredItem = aConjuredItem(0, 10);
+
+        updateQualityOf(conjuredItem);
+
+        assertThat(conjuredItem.quality, is(equalTo(10 - 4)));
     }
 
     @Test

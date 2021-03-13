@@ -18,4 +18,8 @@ public class ItemFixtures {
         return new Item("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
     }
 
+    public static Item aConjuredItem(int sellIn, int quality) {
+        return new Item("Conjured Mana Cake", sellIn, quality);
+    }
+
 }

@@ -1,20 +1,19 @@
 package com.gildedrose.items.helper;
 
-import com.gildedrose.items.helper.ItemType;
-
 public class ItemTypeParser {
 
     public ItemType parse(String name) {
-        switch (name) {
-            case "Sulfuras, Hand of Ragnaros":
-                return ItemType.LEGENDARY_ITEM;
-            case "Backstage passes to a TAFKAL80ETC concert":
-                return ItemType.CONCERT_TICKET;
-            case "Aged Brie":
-                return ItemType.AGEABLE_ITEM;
-            default:
-                return ItemType.NORMAL_ITEM;
+        if ("Sulfuras, Hand of Ragnaros".equals(name)) {
+            return ItemType.LEGENDARY_ITEM;
+        } else if ("Backstage passes to a TAFKAL80ETC concert".equals(name)) {
+            return ItemType.CONCERT_TICKET;
+        } else if ("Aged Brie".equals(name)) {
+            return ItemType.AGEABLE_ITEM;
+        } else if (name.startsWith("Conjured ")) {
+            return ItemType.CONJURED_ITEM;
         }
+
+        return ItemType.NORMAL_ITEM;
     }
 
 }
