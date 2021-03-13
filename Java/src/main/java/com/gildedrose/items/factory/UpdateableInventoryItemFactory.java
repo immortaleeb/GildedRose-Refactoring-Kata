@@ -36,7 +36,7 @@ public class UpdateableInventoryItemFactory {
             case CONCERT_TICKET:
                 return new ConcertTicket(inventoryItem);
             case LEGENDARY_ITEM:
-                return new LegendaryItem(inventoryItem);
+                return new LegendaryItem();
             default:
                 return new NormalItem(inventoryItem);
         }
