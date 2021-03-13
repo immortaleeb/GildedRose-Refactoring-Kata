@@ -4,6 +4,9 @@ import com.gildedrose.items.helper.InventoryItem;
 
 public class ConcertTicket extends ExpireableItem {
 
+    private static final int IN_10_DAYS = 10;
+    private static final int IN_5_DAYS = 5;
+
     public ConcertTicket(InventoryItem inventoryItem) {
         super(inventoryItem);
     }
@@ -15,15 +18,18 @@ public class ConcertTicket extends ExpireableItem {
 
     @Override
     protected void updateNotExpired(InventoryItem inventoryItem) {
-        inventoryItem.increaseQuality();
+        int expirationRate = decideExpirationRateOf(inventoryItem);
+        inventoryItem.increaseQuality(expirationRate);
+    }
 
-        if (inventoryItem.sellsIn(10)) {
-            inventoryItem.increaseQuality();
+    private int decideExpirationRateOf(InventoryItem inventoryItem) {
+        if (inventoryItem.sellsIn(IN_5_DAYS)) {
+            return 3;
+        } else if (inventoryItem.sellsIn(IN_10_DAYS)) {
+            return 2;
         }
 
-        if (inventoryItem.sellsIn(5)) {
-            inventoryItem.increaseQuality();
-        }
+        return 1;
     }
 
 }
