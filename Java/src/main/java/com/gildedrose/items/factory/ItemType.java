@@ -1,6 +1,6 @@
-package com.gildedrose.items.helper;
+package com.gildedrose.items.factory;
 
-public enum ItemType {
+enum ItemType {
     AGEABLE_ITEM,
     CONCERT_TICKET,
     LEGENDARY_ITEM,

@@ -1,11 +1,11 @@
-package com.gildedrose.items.helper;
+package com.gildedrose.items.factory;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-public class ItemTypeParser {
+class ItemTypeParser {
 
     private static final Map<ItemNameMatcher, ItemType> ITEM_MATCHERS = new HashMap<>();
     static {

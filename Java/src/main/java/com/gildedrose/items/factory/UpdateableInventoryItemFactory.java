@@ -8,19 +8,13 @@ import com.gildedrose.items.LegendaryItem;
 import com.gildedrose.items.NormalItem;
 import com.gildedrose.items.UpdateableItem;
 import com.gildedrose.items.helper.InventoryItem;
-import com.gildedrose.items.helper.ItemType;
-import com.gildedrose.items.helper.ItemTypeParser;
 
 public class UpdateableInventoryItemFactory {
 
     private final ItemTypeParser itemTypeParser;
 
-    public UpdateableInventoryItemFactory(ItemTypeParser itemTypeParser) {
-        this.itemTypeParser = itemTypeParser;
-    }
-
     public UpdateableInventoryItemFactory() {
-        this(new ItemTypeParser());
+        this.itemTypeParser = new ItemTypeParser();
     }
 
     public UpdateableItem createFor(Item item) {

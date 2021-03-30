@@ -1,4 +1,4 @@
-package com.gildedrose.items.helper;
+package com.gildedrose.items.factory;
 
 @FunctionalInterface
 interface ItemNameMatcher {
