@@ -13,7 +13,7 @@ abstract class ExpireableItem implements UpdateableItem {
     }
 
     @Override
-    public void update() {
+    public void passDay() {
         updateSellIn();
         updateQuality();
     }

@@ -25,7 +25,7 @@ class GildedRose {
 
     private void updateQualityOf(Item item) {
         UpdateableItem updateableItem = updateableInventoryItemFactory.createFor(item);
-        updateableItem.update();
+        updateableItem.passDay();
     }
 
 }
