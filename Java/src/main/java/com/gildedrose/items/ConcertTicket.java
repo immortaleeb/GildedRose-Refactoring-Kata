@@ -5,19 +5,22 @@ public class ConcertTicket extends ExpireableItem {
     private static final int IN_10_DAYS = 10;
     private static final int IN_5_DAYS = 5;
 
+    private final Quality quality;
+
     public ConcertTicket(InventoryItem inventoryItem) {
         super(inventoryItem);
+        quality = new Quality(inventoryItem.item());
     }
 
     @Override
     protected void updateExpired(InventoryItem inventoryItem) {
-        inventoryItem.dropQuality();
+        quality.drop();
     }
 
     @Override
     protected void updateNotExpired(InventoryItem inventoryItem) {
         int expirationRate = decideExpirationRateOf(inventoryItem);
-        inventoryItem.increaseQuality(expirationRate);
+        quality.increase(expirationRate);
     }
 
     private int decideExpirationRateOf(InventoryItem inventoryItem) {
