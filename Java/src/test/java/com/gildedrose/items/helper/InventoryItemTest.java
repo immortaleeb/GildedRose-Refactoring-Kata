@@ -2,6 +2,7 @@ package com.gildedrose.items.helper;
 
 import com.gildedrose.Item;
 import com.gildedrose.ItemFixtures;
+import com.gildedrose.items.InventoryItem;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;

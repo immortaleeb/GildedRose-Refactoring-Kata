@@ -1,7 +1,5 @@
 package com.gildedrose.items;
 
-import com.gildedrose.items.helper.InventoryItem;
-
 public class ConcertTicket extends ExpireableItem {
 
     private static final int IN_10_DAYS = 10;

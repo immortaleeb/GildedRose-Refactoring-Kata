@@ -7,7 +7,7 @@ import com.gildedrose.items.ConjuredItem;
 import com.gildedrose.items.LegendaryItem;
 import com.gildedrose.items.NormalItem;
 import com.gildedrose.items.UpdateableItem;
-import com.gildedrose.items.helper.InventoryItem;
+import com.gildedrose.items.InventoryItem;
 
 public class UpdateableInventoryItemFactory {
 

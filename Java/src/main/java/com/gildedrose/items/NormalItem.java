@@ -1,7 +1,5 @@
 package com.gildedrose.items;
 
-import com.gildedrose.items.helper.InventoryItem;
-
 public class NormalItem extends ExpireableItem {
 
     private static final int QUALITY_EXPIRATION_RATE = 1;
