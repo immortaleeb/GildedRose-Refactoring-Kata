@@ -9,19 +9,8 @@ public class InventoryItem {
         this.item = item;
     }
 
-    public void decreaseSellIn() {
-        item.sellIn = item.sellIn - 1;
-    }
-
-    public boolean isExpired() {
-        return item.sellIn < 0;
-    }
-
     public Item item() {
         return item;
     }
 
-    public boolean sellsIn(int numberOfDays) {
-        return item.sellIn < numberOfDays;
-    }
 }

@@ -3,9 +3,11 @@ package com.gildedrose.items;
 abstract class ExpireableItem implements UpdateableItem {
 
     private final InventoryItem inventoryItem;
+    private final SellIn sellIn;
 
     public ExpireableItem(InventoryItem inventoryItem) {
         this.inventoryItem = inventoryItem;
+        this.sellIn = new SellIn(inventoryItem.item());
     }
 
     @Override
@@ -15,11 +17,11 @@ abstract class ExpireableItem implements UpdateableItem {
     }
 
     private void updateSellIn() {
-        inventoryItem.decreaseSellIn();
+        sellIn.decrease();
     }
 
     private void updateQuality() {
-        if (inventoryItem.isExpired()) {
+        if (sellIn.isExpired()) {
             updateExpired(inventoryItem);
         } else {
             updateNotExpired(inventoryItem);

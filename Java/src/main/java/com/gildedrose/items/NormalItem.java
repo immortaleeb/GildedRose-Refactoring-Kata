@@ -3,6 +3,7 @@ package com.gildedrose.items;
 public class NormalItem extends ExpireableItem {
 
     private static final int QUALITY_EXPIRATION_RATE = 1;
+
     private final Quality quality;
 
     public NormalItem(InventoryItem inventoryItem) {
