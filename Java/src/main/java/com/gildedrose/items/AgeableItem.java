@@ -4,20 +4,17 @@ public class AgeableItem extends ExpireableItem {
 
     private static final int QUALITY_EXPIRATION_RATE = 1;
 
-    private final Quality quality;
-
     public AgeableItem(InventoryItem inventoryItem) {
         super(inventoryItem);
-        this.quality = new Quality(inventoryItem.item());
     }
 
     @Override
-    protected void updateExpired(InventoryItem inventoryItem) {
+    protected void updateExpired(SellIn sellIn, Quality quality) {
         quality.increase(2 * QUALITY_EXPIRATION_RATE);
     }
 
     @Override
-    protected void updateNotExpired(InventoryItem inventoryItem) {
+    protected void updateNotExpired(SellIn sellIn, Quality quality) {
         quality.increase(QUALITY_EXPIRATION_RATE);
     }
 

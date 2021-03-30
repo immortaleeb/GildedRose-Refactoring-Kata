@@ -4,20 +4,18 @@ public class ConjuredItem extends ExpireableItem {
 
     private static final int EXPIRATION_RATE = 2;
 
-    private final Quality quality;
-
     public ConjuredItem(InventoryItem inventoryItem) {
         super(inventoryItem);
-        quality = new Quality(inventoryItem.item());
     }
 
     @Override
-    protected void updateExpired(InventoryItem inventoryItem) {
+    protected void updateExpired(SellIn sellIn, Quality quality) {
         quality.decrease(2 * EXPIRATION_RATE);
     }
 
     @Override
-    protected void updateNotExpired(InventoryItem inventoryItem) {
+    protected void updateNotExpired(SellIn sellIn, Quality quality) {
         quality.decrease(EXPIRATION_RATE);
     }
+
 }

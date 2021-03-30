@@ -1,13 +1,19 @@
 package com.gildedrose.items;
 
+import com.gildedrose.Item;
+
 abstract class ExpireableItem implements UpdateableItem {
 
-    private final InventoryItem inventoryItem;
+    private final Quality quality;
     private final SellIn sellIn;
 
     public ExpireableItem(InventoryItem inventoryItem) {
-        this.inventoryItem = inventoryItem;
-        this.sellIn = new SellIn(inventoryItem.item());
+        this(inventoryItem.item());
+    }
+
+    public ExpireableItem(Item item) {
+        this.quality = new Quality(item);
+        this.sellIn = new SellIn(item);
     }
 
     @Override
@@ -22,14 +28,14 @@ abstract class ExpireableItem implements UpdateableItem {
 
     private void updateQuality() {
         if (sellIn.isExpired()) {
-            updateExpired(inventoryItem);
+            updateExpired(sellIn, quality);
         } else {
-            updateNotExpired(inventoryItem);
+            updateNotExpired(sellIn, quality);
         }
     }
 
-    protected abstract void updateExpired(InventoryItem inventoryItem);
+    protected abstract void updateExpired(SellIn sellIn, Quality quality);
 
-    protected abstract void updateNotExpired(InventoryItem inventoryItem);
+    protected abstract void updateNotExpired(SellIn sellIn, Quality quality);
 
 }
