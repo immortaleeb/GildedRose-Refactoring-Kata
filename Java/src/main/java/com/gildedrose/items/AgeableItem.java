@@ -1,11 +1,13 @@
 package com.gildedrose.items;
 
+import com.gildedrose.Item;
+
 public class AgeableItem extends ExpireableItem {
 
     private static final int QUALITY_EXPIRATION_RATE = 1;
 
-    public AgeableItem(InventoryItem inventoryItem) {
-        super(inventoryItem);
+    public AgeableItem(Item item) {
+        super(item);
     }
 
     @Override

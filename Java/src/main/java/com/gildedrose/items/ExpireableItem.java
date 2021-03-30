@@ -7,10 +7,6 @@ abstract class ExpireableItem implements UpdateableItem {
     private final Quality quality;
     private final SellIn sellIn;
 
-    public ExpireableItem(InventoryItem inventoryItem) {
-        this(inventoryItem.item());
-    }
-
     public ExpireableItem(Item item) {
         this.quality = new Quality(item);
         this.sellIn = new SellIn(item);

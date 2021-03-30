@@ -7,7 +7,6 @@ import com.gildedrose.items.ConjuredItem;
 import com.gildedrose.items.LegendaryItem;
 import com.gildedrose.items.NormalItem;
 import com.gildedrose.items.UpdateableItem;
-import com.gildedrose.items.InventoryItem;
 
 public class UpdateableInventoryItemFactory {
 
@@ -19,23 +18,22 @@ public class UpdateableInventoryItemFactory {
 
     public UpdateableItem createFor(Item item) {
         ItemType itemType = itemTypeParser.parse(item.name);
-        InventoryItem inventoryItem = new InventoryItem(item);
 
-        return createFor(itemType, inventoryItem);
+        return createFor(itemType, item);
     }
 
-    private UpdateableItem createFor(ItemType itemType, InventoryItem inventoryItem) {
+    private UpdateableItem createFor(ItemType itemType, Item item) {
         switch (itemType) {
             case AGEABLE_ITEM:
-                return new AgeableItem(inventoryItem);
+                return new AgeableItem(item);
             case CONCERT_TICKET:
-                return new ConcertTicket(inventoryItem);
+                return new ConcertTicket(item);
             case LEGENDARY_ITEM:
                 return new LegendaryItem();
             case CONJURED_ITEM:
-                return new ConjuredItem(inventoryItem);
+                return new ConjuredItem(item);
             case NORMAL_ITEM:
-                return new NormalItem(inventoryItem);
+                return new NormalItem(item);
             default:
                 throw new IllegalArgumentException("Cannot create updateable item for unknown type " + itemType);
         }

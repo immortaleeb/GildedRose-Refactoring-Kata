@@ -1,12 +1,14 @@
 package com.gildedrose.items;
 
+import com.gildedrose.Item;
+
 public class ConcertTicket extends ExpireableItem {
 
     private static final int IN_10_DAYS = 10;
     private static final int IN_5_DAYS = 5;
 
-    public ConcertTicket(InventoryItem inventoryItem) {
-        super(inventoryItem);
+    public ConcertTicket(Item item) {
+        super(item);
     }
 
     @Override

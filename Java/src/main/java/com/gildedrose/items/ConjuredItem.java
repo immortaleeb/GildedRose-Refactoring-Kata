@@ -1,11 +1,13 @@
 package com.gildedrose.items;
 
+import com.gildedrose.Item;
+
 public class ConjuredItem extends ExpireableItem {
 
     private static final int EXPIRATION_RATE = 2;
 
-    public ConjuredItem(InventoryItem inventoryItem) {
-        super(inventoryItem);
+    public ConjuredItem(Item item) {
+        super(item);
     }
 
     @Override
