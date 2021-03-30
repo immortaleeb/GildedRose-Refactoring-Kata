@@ -2,7 +2,7 @@ package com.gildedrose.items;
 
 import com.gildedrose.Item;
 
-abstract class ExpireableItem implements UpdateableItem {
+abstract class ExpireableItem implements GildedRoseItem {
 
     private final Quality quality;
     private final SellIn sellIn;

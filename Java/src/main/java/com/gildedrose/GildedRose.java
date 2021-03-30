@@ -1,20 +1,20 @@
 package com.gildedrose;
 
-import com.gildedrose.items.UpdateableItem;
-import com.gildedrose.items.factory.UpdateableInventoryItemFactory;
+import com.gildedrose.items.GildedRoseItem;
+import com.gildedrose.items.factory.GildedRoseItemFactory;
 
 class GildedRose {
 
     Item[] items;
-    private final UpdateableInventoryItemFactory updateableInventoryItemFactory;
+    private final GildedRoseItemFactory gildedRoseItemFactory;
 
     public GildedRose(Item[] items) {
-        this(items, new UpdateableInventoryItemFactory());
+        this(items, new GildedRoseItemFactory());
     }
 
-    public GildedRose(Item[] items, UpdateableInventoryItemFactory updateableInventoryItemFactory) {
+    public GildedRose(Item[] items, GildedRoseItemFactory gildedRoseItemFactory) {
         this.items = items;
-        this.updateableInventoryItemFactory = updateableInventoryItemFactory;
+        this.gildedRoseItemFactory = gildedRoseItemFactory;
     }
 
     public void updateQuality() {
@@ -24,8 +24,8 @@ class GildedRose {
     }
 
     private void updateQualityOf(Item item) {
-        UpdateableItem updateableItem = updateableInventoryItemFactory.createFor(item);
-        updateableItem.passDay();
+        GildedRoseItem gildedRoseItem = gildedRoseItemFactory.createFor(item);
+        gildedRoseItem.passDay();
     }
 
 }

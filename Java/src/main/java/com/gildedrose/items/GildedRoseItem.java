@@ -1,6 +1,6 @@
 package com.gildedrose.items;
 
-public interface UpdateableItem {
+public interface GildedRoseItem {
 
     void passDay();
 

@@ -6,23 +6,23 @@ import com.gildedrose.items.ConcertTicket;
 import com.gildedrose.items.ConjuredItem;
 import com.gildedrose.items.LegendaryItem;
 import com.gildedrose.items.NormalItem;
-import com.gildedrose.items.UpdateableItem;
+import com.gildedrose.items.GildedRoseItem;
 
-public class UpdateableInventoryItemFactory {
+public class GildedRoseItemFactory {
 
     private final ItemTypeParser itemTypeParser;
 
-    public UpdateableInventoryItemFactory() {
+    public GildedRoseItemFactory() {
         this.itemTypeParser = new ItemTypeParser();
     }
 
-    public UpdateableItem createFor(Item item) {
+    public GildedRoseItem createFor(Item item) {
         ItemType itemType = itemTypeParser.parse(item.name);
 
         return createFor(itemType, item);
     }
 
-    private UpdateableItem createFor(ItemType itemType, Item item) {
+    private GildedRoseItem createFor(ItemType itemType, Item item) {
         switch (itemType) {
             case AGEABLE_ITEM:
                 return new AgeableItem(item);
@@ -35,7 +35,7 @@ public class UpdateableInventoryItemFactory {
             case NORMAL_ITEM:
                 return new NormalItem(item);
             default:
-                throw new IllegalArgumentException("Cannot create updateable item for unknown type " + itemType);
+                throw new IllegalArgumentException("Cannot create gilded rose item for unknown type " + itemType);
         }
     }
 
